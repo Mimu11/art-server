@@ -84,6 +84,11 @@ async function run() {
             const result = await userCollection.insertOne(user)
             res.send(result)
         })
+        app.get('/user', async (req, res) => {
+            const cursor = userCollection.find();
+            const result = await cursor.toArray();
+            res.send(result)
+        })
 
 
 
